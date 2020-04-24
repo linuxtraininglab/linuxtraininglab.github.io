@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Linux Lab Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Linux Lab Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="rhcsa/">RHCSA</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="rhcsa/#clone-the-repository">Clone The Repository</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="rhcsa/#build-the-environment">Build The Environment</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="rhcsa/#configure-hosts-file">Configure Hosts File</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="rhcsa/#practice-practice-practice">Practice, Practice, Practice</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="rhcsa/#accessing-the-servers">Accessing The Servers</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Linux Lab Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="project-overview">Project Overview<a class="headerlink" href="#project-overview" title="Permanent link">&para;</a></h2>
+<p>Throughout my career, I've needed to achieve various certifications. To aid in my studying, I needed a practice environment. This environment needed the ability to be easily destroyed and recreated. Configuring a proper lab environment by hand was eating up too much of my valuable study time. This project will create an environment that is suitable for certification practice.</p>
+<p>This project provides environments for each of the following certifications:</p>
+<ul>
+<li>RHCSA</li>
+<li>LFCS (WIP)</li>
+<li>RHCE (WIP)</li>
+</ul>
+<p>Each environment works on Windows 10 and macOS. VirtualBox is the only supported hypervisor.</p>
+<h2 id="project-mission">Project Mission<a class="headerlink" href="#project-mission" title="Permanent link">&para;</a></h2>
+<p>Provide an easy-to-use, cross-platform lab environment for Linux training.</p>
+<h2 id="project-goals">Project Goals<a class="headerlink" href="#project-goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Automate base boxes creation with packer and Ansible</li>
+<li>Host boxes on the <a href="https://app.vagrantup.com/linux-lab">Vagrant Cloud</a></li>
+<li>Automate the management of the lab environment</li>
+</ul>
+<h2 id="project-requirements">Project Requirements<a class="headerlink" href="#project-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.vagrantup.com/">Vagrant</a> - A tool for building and managing virtual machine environments</li>
+<li><a href="https://www.virtualbox.org/">VirtualBox</a> - Cross-platform hypervisor</li>
+<li><a href="https://www.cygwin.com/">Cygwin</a> - A large collection of GNU and Open Source tools for Windows</li>
+</ul>
+<h2 id="base-boxes">Base Boxes<a class="headerlink" href="#base-boxes" title="Permanent link">&para;</a></h2>
+<p>Two main boxes are used throughout the environments, IPA server and lab server. Both boxes are installed with CentOS 7.0.</p>
+<h3 id="ipa-server">IPA Server<a class="headerlink" href="#ipa-server" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Services running on this server are LDAP, DNS, and NFS.</li>
+<li>This server hosts a YUM repository from the contents of the CentOS 7 DVD.</li>
+<li><a href="https://github.com/sj26/mailcatcher">MailCatcher</a> is installed which will aid in testing SMTP configurations.</li>
+</ul>
+<h3 id="lab-server">LAB Server<a class="headerlink" href="#lab-server" title="Permanent link">&para;</a></h3>
+<ul>
+<li>This server only has the core package group installed.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rhcsa/" class="btn btn-neutral float-right" title="RHCSA">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="rhcsa/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(false);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.1
+Build Date UTC : 2020-04-24 17:53:41
+-->
